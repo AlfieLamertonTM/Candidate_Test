@@ -3,10 +3,10 @@ import SignupForm from './signupForm';
 
 const App = () => {
 
-  // const signupForm = new SignupForm();
+  const signupForm = new SignupForm();
 
   return (
-    // signupForm
+    signupForm
   );
 };
 
