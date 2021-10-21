@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CreditCard } from "../CreditCard";
+import Footer from "../Footer";
+import Header from "../Header";
 
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
@@ -32,7 +34,7 @@ export default function Cards() {
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
     const cardList = [anywhereCard];
 
-    if (customer.employmentStatus === "student") {
+    if (customer.employmentStatus == "student") {
       cardList.push(studentLifeCard);
     }
     if (customer.annualIncome > 16000) {
@@ -45,13 +47,16 @@ export default function Cards() {
 
   return (
     <div className="App">
+      <Header />
       {filteredCardList.map((card) => (
-        <div className="card">
-          <p>{card.name}</p>
-          <p>{card.apr}</p>
-          <p>{card.balanceTransferOfferDuration}</p>
-          <p>{card.purchaseOfferDuration}</p>
-          <p>{card.availableCredit}</p>
+        <div className="CardDiv">
+          <h2>{card.name}</h2>
+          <p>Apr: {card.apr}</p>
+          <p>
+            Balance Transfer Offer Duration: {card.balanceTransferOfferDuration}
+          </p>
+          <p>Purchase Offer Duration: {card.purchaseOfferDuration}</p>
+          <p>Credit Available: {card.availableCredit}</p>
         </div>
       ))}
     </div>
