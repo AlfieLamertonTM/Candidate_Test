@@ -59,6 +59,20 @@ export function NewCustomer(props) {
   };
 
   const handleSubmit = (event) => {
+    const object = {
+      id: "1",
+      title: title,
+      firstName: firstName,
+      lastName: lastName,
+      dayOfBirth: dayOfBirth.toString(),
+      monthOfBirth: monthOfBirth.toString(),
+      yearOfBirth: yearOfBirth.toString(),
+      employmentStatus: employmentStatus,
+      annualIncome: annualIncome.toString(),
+      houseNumber: houseNumber.toString(),
+      postcode: postcode,
+    };
+
     event.preventDefault();
     axios
       .post(
@@ -95,30 +109,16 @@ export function NewCustomer(props) {
           Title
           <select
             data-testid="titleSelect"
-            name="title"
+            value="selectTitle"
             onChange={(event) => handleChange(event, "title")}
           >
-            <option value="Select Title" data-testid="selectTitle">
-              Select Title
-            </option>
-            <option value="Mr" data-testid="Mr">
-              Mr
-            </option>
-            <option value="Mrs" data-testid="Mrs">
-              Mrs
-            </option>
-            <option value="Miss" data-testid="Miss">
-              Miss
-            </option>
-            <option value="Ms" data-testid="Ms">
-              Ms
-            </option>
-            <option value="Dr" data-testid="Dr">
-              Dr
-            </option>
-            <option value="Rev" data-testid="Rev">
-              Rev
-            </option>
+            <option value="Select Title">Select Title</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Ms">Ms</option>
+            <option value="Dr">Dr</option>
+            <option value="Rev">Rev</option>
           </select>
         </label>
         <br />
@@ -172,8 +172,8 @@ export function NewCustomer(props) {
         <label>
           Employment Status
           <select
-            data-testid="employmentStatus"
-            name="employmentStatus"
+            data-testid="employmentStatusSelect"
+            name="employmentStatusSelect"
             onChange={(event) => handleChange(event, "employmentStatus")}
           >
             <option
@@ -182,15 +182,9 @@ export function NewCustomer(props) {
             >
               Select Employment Status
             </option>
-            <option value="fullTime" data-testid="fullTime">
-              Full Time
-            </option>
-            <option value="partTime" data-testid="partTime">
-              Part Time
-            </option>
-            <option value="student" data-testid="student">
-              Student
-            </option>
+            <option value="fullTime">Full Time</option>
+            <option value="partTime">Part Time</option>
+            <option value="student">Student</option>
             {/*TODO: This should be open for extension (O)*/}
           </select>
         </label>
@@ -226,14 +220,14 @@ export function NewCustomer(props) {
 
         <button
           type="submit"
-          onClick={handleSubmit}
           name="submit"
           value="submit"
+          data-testid="submit"
+          onClick={handleSubmit}
         >
           Submit
         </button>
       </form>
-      {/* <Footer /> */}
     </div>
   );
 }

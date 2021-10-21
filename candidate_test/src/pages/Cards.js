@@ -48,8 +48,9 @@ export default function Cards() {
   return (
     <div className="App">
       <Header />
+      <h2 className="smallHeader">Cards Available to You</h2>
       {filteredCardList.map((card) => (
-        <div className="CardDiv">
+        <div className="CardDiv" data-testid="CardDiv">
           <h2>{card.name}</h2>
           <p>Apr: {card.apr}</p>
           <p>

@@ -1,35 +1,45 @@
-.App {
+@media only screen and (min-width: 0px) {
+  .App {
+    text-align: center;
+  }
+
+  .HeaderDiv {
+    background-color: #001b50;
+    height: 100px;
+  }
+
+  .HeaderTitle {
+    color: white;
+    margin: auto;
+    padding-top: 3.5vh;
+    padding-left: 2vw;
+  }
+
+  .FooterDiv {
+    background-color: #949494;
+    height: 50px;
+  }
+
+  .FooterTitle {
+    color: white;
+  }
+
+  .smallHeader {
+    padding-left: 2vw;
+  }
+
+  .CardDiv {
+    /* text-align: center; */
+    width: 50vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* Margin collapse */
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-.HeaderDiv {
-  background-color: #001b50;
-  height: 100px;
-}
-
-.HeaderTitle {
-  color: white;
-  margin: auto;
-  padding-top: 3.5vh;
-  padding-left: 2vw;
-}
-
-.FooterDiv {
-  background-color: #949494;
-  height: 50px;
-}
-
-.FooterTitle {
-  color: white;
-}
-
-.CardDiv {
-  text-align: center;
-  width: 50vh;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  margin-top: 2vh;
-  margin-bottom: 2vh; /* Margin collapse */
-  margin-left: 2vw;
-  margin-right: auto;
+@media only screen and (min-width: 600px) {
 }
