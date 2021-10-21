@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Customer } from "../Customer";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -84,32 +83,6 @@ export function NewCustomer(props) {
       });
     routeChange();
   };
-
-  // const returnFilteredCardList = (customer) => {
-  //   const cardList = [anywhereCard];
-  //   if (customer.employmentStatus === "student") {
-  //     cardList.push(studentCard);
-  //   }
-  //   if (customer.annualIncome > 16000) {
-  //     cardList.push(liquidCard);
-  //   }
-  //   renderCardList(cardList);
-  // };
-
-  // const renderCardList = (cardList) => {
-  //   for (let i = 0; i < cardList.length; i++) {
-  //     return (
-  //       <div>
-  //         {/* <h1 value={cardList[i].name}></h1>
-  //         <h1 value={cardList[i].apr}></h1>
-  //         <h1 value={cardList[i].balanceTransferOfferDuration}></h1>
-  //         <h1 value={cardList[i].purchaseOfferDuration}></h1>
-  //         <h1 value={cardList[i].availableCredit}></h1> */}
-  //         <h1>Hello world</h1>
-  //       </div>
-  //     );
-  //   }
-  // };
 
   return (
     <form>
