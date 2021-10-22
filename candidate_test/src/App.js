@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NewCustomer from "./pages/NewCustomer";
 import Cards from "./pages/Cards";
 import "./App.css";
-import Header from "./Header";
 
 export default function app() {
   // TODO: see if this is still necessary

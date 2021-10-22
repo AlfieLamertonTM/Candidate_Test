@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header";
-import Footer from "../Footer";
 
-export function NewCustomer(props) {
+export function NewCustomer() {
   // TODO: this can probably be massively shortened since there's no need to reset the state of the form (unless more than one customer's data was to be entered)
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -59,20 +58,6 @@ export function NewCustomer(props) {
   };
 
   const handleSubmit = (event) => {
-    const object = {
-      id: "1",
-      title: title,
-      firstName: firstName,
-      lastName: lastName,
-      dayOfBirth: dayOfBirth.toString(),
-      monthOfBirth: monthOfBirth.toString(),
-      yearOfBirth: yearOfBirth.toString(),
-      employmentStatus: employmentStatus,
-      annualIncome: annualIncome.toString(),
-      houseNumber: houseNumber.toString(),
-      postcode: postcode,
-    };
-
     event.preventDefault();
     axios
       .post(

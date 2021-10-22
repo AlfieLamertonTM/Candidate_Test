@@ -37,6 +37,17 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .cardDetails {
+    width: 50vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* Margin collapse */
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media only screen and (min-width: 600px) {
