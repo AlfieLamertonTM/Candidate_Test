@@ -4,6 +4,7 @@ import { CreditCard } from "../CreditCard";
 import Footer from "../Footer";
 import Header from "../Header";
 
+// TODO: make this into a working component instead of a function
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
   const id = "1";
@@ -34,7 +35,7 @@ export default function Cards() {
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
     const cardList = [anywhereCard];
 
-    if (customer.employmentStatus == "student") {
+    if (customer.employmentStatus === "student") {
       cardList.push(studentLifeCard);
     }
     if (customer.annualIncome > 16000) {
