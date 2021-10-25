@@ -50,10 +50,10 @@ export default function Cards() {
     const anywhereCard = new CreditCard("Anywhere Card", 18.9, 0, 6, 1200);
     const studentLifeCard = new CreditCard("Student Life", 33.9, 0, 0, 300);
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
-    const boujeeCard = new CreditCard("Boujee Card", 33.9, 12, 6, 40000);
+    // const boujeeCard = new CreditCard("Boujee Card", 33.9, 12, 6, 40000);
     // show them this
 
-    const cardList = [anywhereCard, boujeeCard];
+    const cardList = [anywhereCard];
 
     if (customer.employmentStatus === "student") {
       cardList.push(studentLifeCard);
