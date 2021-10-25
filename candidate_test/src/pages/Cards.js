@@ -3,37 +3,29 @@ import React, { useEffect, useState } from "react";
 import { CreditCard } from "../CreditCard";
 import Header from "../Header";
 
-// TODO: make this into a working component instead of a function
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
   const [showDetails, setShowDetails] = useState(false);
   const [openCards, setOpenCards] = useState([]);
   const id = "1";
+  let totalAvailableCredit = 0;
 
-  // const calculateTotalAvailableCredit = (cardList) => {
-  //   const totalAvailableCredit = 0;
-  //   for (let card in cardList) {
-  //     totalAvailableCredit += card.availableCredit;
-  //   }
-  //   return totalAvailableCredit;
-  // };
-
-  const clickForDetails = (cardName) => {
+  const showCardDetails = (cardName) => {
     setOpenCards([...openCards, cardName]);
     if (showDetails && openCards.includes(cardName)) {
       const filteredCards = [
-        ...new Set(openCards.filter((item) => item !== cardName)),
+        ...new Set(openCards.filter((item) => item !== cardName)), // This is buggy, https://stackoverflow.com/questions/58106099/react-onclick-not-firing-on-first-click-second-click-behaves-as-expected-simpl
       ];
       setOpenCards(filteredCards);
       setShowDetails(filteredCards.includes(cardName) ? false : true);
-      return;
+      updateTotalAvailableCredit(openCards);
     }
     if (openCards.includes(cardName)) {
       setShowDetails(true);
-      return;
+      updateTotalAvailableCredit(openCards, filteredCardList);
     }
+    return openCards;
   };
-  console.log(openCards);
 
   useEffect(() => {
     getCustomer();
@@ -72,7 +64,21 @@ export default function Cards() {
     return cardList;
   };
 
+  const updateTotalAvailableCredit = (cardNameList) => {
+    for (let i in cardNameList) {
+      for (let j in filteredCardList) {
+        if (cardNameList[i] === filteredCardList[j].name) {
+          totalAvailableCredit += filteredCardList[j].availableCredit;
+        }
+      }
+    }
+    return totalAvailableCredit;
+  };
+
   const filteredCardList = filterCards(customer);
+  totalAvailableCredit = updateTotalAvailableCredit(openCards);
+
+  console.log(openCards);
 
   return (
     <div className="App">
@@ -81,7 +87,7 @@ export default function Cards() {
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {filteredCardList.map((card) => (
           <div
-            onClick={() => clickForDetails(card.name)}
+            onClick={() => showCardDetails(card.name)}
             key={card.name}
             className="CardDiv"
             data-testid="CardDiv"
@@ -92,7 +98,7 @@ export default function Cards() {
           >
             <h2>{card.name}</h2>
             {showDetails &&
-              openCards.includes(card.name) && ( // add const checkifcontinsblahblah
+              openCards.includes(card.name) && ( // add const checkifcontainscardname
                 <div>
                   <p>Apr: {card.apr}</p>
                   <p>
@@ -107,6 +113,7 @@ export default function Cards() {
         ))}
       </div>
       <h2 className="smallHeader">Total Available Credit</h2>
+      <p>{totalAvailableCredit}</p>
     </div>
   );
 }
