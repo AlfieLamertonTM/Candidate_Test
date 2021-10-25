@@ -12,10 +12,10 @@ export default function Cards() {
 
   const showCardDetails = (cardName) => {
     setOpenCards([...openCards, cardName]);
+    const filteredCards = [
+      ...new Set(openCards.filter((item) => item !== cardName)), // This is buggy, https://stackoverflow.com/questions/58106099/react-onclick-not-firing-on-first-click-second-click-behaves-as-expected-simpl
+    ];
     if (showDetails && openCards.includes(cardName)) {
-      const filteredCards = [
-        ...new Set(openCards.filter((item) => item !== cardName)), // This is buggy, https://stackoverflow.com/questions/58106099/react-onclick-not-firing-on-first-click-second-click-behaves-as-expected-simpl
-      ];
       setOpenCards(filteredCards);
       setShowDetails(filteredCards.includes(cardName) ? false : true);
       updateTotalAvailableCredit(openCards);
@@ -50,8 +50,7 @@ export default function Cards() {
     const anywhereCard = new CreditCard("Anywhere Card", 18.9, 0, 6, 1200);
     const studentLifeCard = new CreditCard("Student Life", 33.9, 0, 0, 300);
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
-    // const boujeeCard = new CreditCard("Boujee Card", 33.9, 12, 6, 40000);
-    // show them this
+    // const bigStacksCard = new CreditCard("Big Stacks Card", 33.9, 12, 6, 40000);
 
     const cardList = [anywhereCard];
 
@@ -61,6 +60,9 @@ export default function Cards() {
     if (customer.annualIncome > 16000) {
       cardList.push(liquidCard);
     }
+    // if (customer.annualIncome > 100000) {
+    //   cardList.push(bigStacksCard);
+    // }
     return cardList;
   };
 
@@ -93,10 +95,11 @@ export default function Cards() {
             data-testid="CardDiv"
             style={{
               height:
-                showDetails && openCards.includes(card.name) ? "unset" : 75,
+                showDetails && openCards.includes(card.name) ? "unset" : 100,
             }}
           >
             <h2>{card.name}</h2>
+            <p>Click to show more details</p>
             {showDetails &&
               openCards.includes(card.name) && ( // add const checkifcontainscardname
                 <div>
