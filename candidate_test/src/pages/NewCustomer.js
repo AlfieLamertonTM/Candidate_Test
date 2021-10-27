@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../Header";
 import Footer from "../Footer";
 
-export function NewCustomer() {
+export default function NewCustomer() {
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,7 +15,6 @@ export function NewCustomer() {
   const [annualIncome, setAnnualIncome] = useState(0);
   const [houseNumber, setHouseNumber] = useState(0);
   const [postcode, setPostCode] = useState("");
-
   const history = useHistory();
 
   const handleChange = (event, field) => {
@@ -85,15 +84,6 @@ export function NewCustomer() {
     routeChange();
   };
 
-  // const handleTextChange = (e, maxLength) => {
-  //   if (e.target.value.length <= maxLength) {
-  //     this.setState({ value: e.target.value });
-  //   }
-  //   if (e.target.value.length === maxLength) {
-  //     this.nextComponent.focus();
-  //   }
-  // };
-
   return (
     <div className="App">
       <Header />
@@ -139,16 +129,12 @@ export function NewCustomer() {
             <div className="tableDiv">
               <div className="tableCellDiv">
                 <input
-                  // value={this.state.value}
                   className="dayOfBirth"
                   type="text"
                   name="dayOfBirth"
                   data-testid="dayOfBirth"
                   placeholder="DD"
-                  // onChange={
-                  //   ((event) => handleChange(event, "dayOfBirth"),
-                  //   this.handleTextChange)
-                  // }
+                  onChange={(event) => handleChange(event, "dayOfBirth")}
                 ></input>
               </div>
 
@@ -163,7 +149,7 @@ export function NewCustomer() {
                 ></input>
               </div>
 
-              <div className="tableCellDiv" i>
+              <div className="tableCellDiv">
                 <input
                   className="yearOfBirth"
                   type="text"
@@ -216,7 +202,9 @@ export function NewCustomer() {
               name="houseNumber"
               data-testid="houseNumber"
               placeholder="House Number"
-              onChange={(event) => handleChange(event, "houseNumber")}
+              onChange={(event) => {
+                handleChange(event, "houseNumber");
+              }}
             ></input>
             <br />
 
@@ -246,5 +234,3 @@ export function NewCustomer() {
     </div>
   );
 }
-
-export default NewCustomer;

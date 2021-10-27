@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CreditCard } from "../CreditCard";
 import Header from "../Header";
+import Footer from "../Footer";
 
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
@@ -43,7 +44,13 @@ export default function Cards() {
     const anywhereCard = new CreditCard("Anywhere Card", 18.9, 0, 6, 1200);
     const studentLifeCard = new CreditCard("Student Life", 33.9, 0, 0, 300);
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
-    // const bigStacksCard = new CreditCard("Big Stacks Card", 33.9, 12, 6, 40000); // This line is an example of extensible logic
+    const bigStacksCard = new CreditCard(
+      "Big Stacks Card",
+      33.9,
+      12,
+      6,
+      100000
+    ); // This line is an example of extensible logic
 
     const cardList = [anywhereCard];
 
@@ -54,9 +61,9 @@ export default function Cards() {
       cardList.push(liquidCard);
     }
     // This block is an example of extensible logic, too
-    // if (customer.annualIncome > 100000) {
-    //   cardList.push(bigStacksCard);
-    // }
+    if (customer.annualIncome > 100000) {
+      cardList.push(bigStacksCard);
+    }
     return cardList;
   };
 
@@ -109,6 +116,7 @@ export default function Cards() {
       </div>
       <h2 className="smallHeader">Total Available Credit</h2>
       <p>{totalAvailableCredit}</p>
+      <Footer />
     </div>
   );
 }
