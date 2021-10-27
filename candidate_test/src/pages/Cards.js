@@ -5,25 +5,18 @@ import Header from "../Header";
 
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
-  const [showDetails, setShowDetails] = useState(false);
+  // const [showDetails, setShowDetails] = useState(false);
   const [openCards, setOpenCards] = useState([]);
   const id = "1";
   let totalAvailableCredit = 0;
 
   const showCardDetails = (cardName) => {
-    setOpenCards([...openCards, cardName]);
-    const filteredCards = [
-      ...new Set(openCards.filter((item) => item !== cardName)), // This is buggy, https://stackoverflow.com/questions/58106099/react-onclick-not-firing-on-first-click-second-click-behaves-as-expected-simpl
-    ];
-    if (showDetails && openCards.includes(cardName)) {
-      setOpenCards(filteredCards);
-      setShowDetails(filteredCards.includes(cardName) ? false : true);
-      updateTotalAvailableCredit(openCards);
-    }
     if (openCards.includes(cardName)) {
-      setShowDetails(true);
-      updateTotalAvailableCredit(openCards, filteredCardList);
+      setOpenCards([...openCards.filter((item) => item !== cardName)]);
+    } else {
+      setOpenCards([...openCards, cardName]);
     }
+    updateTotalAvailableCredit(openCards);
     return openCards;
   };
 
@@ -50,7 +43,7 @@ export default function Cards() {
     const anywhereCard = new CreditCard("Anywhere Card", 18.9, 0, 6, 1200);
     const studentLifeCard = new CreditCard("Student Life", 33.9, 0, 0, 300);
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
-    // const bigStacksCard = new CreditCard("Big Stacks Card", 33.9, 12, 6, 40000);
+    // const bigStacksCard = new CreditCard("Big Stacks Card", 33.9, 12, 6, 40000); // This line is an example of extensible logic
 
     const cardList = [anywhereCard];
 
@@ -60,6 +53,7 @@ export default function Cards() {
     if (customer.annualIncome > 16000) {
       cardList.push(liquidCard);
     }
+    // This block is an example of extensible logic, too
     // if (customer.annualIncome > 100000) {
     //   cardList.push(bigStacksCard);
     // }
@@ -83,7 +77,7 @@ export default function Cards() {
   console.log(openCards);
 
   return (
-    <div className="App">
+    <div className="Cards">
       <Header />
       <h2 className="smallHeader">Cards Available to You</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -94,24 +88,22 @@ export default function Cards() {
             className="CardDiv"
             data-testid="CardDiv"
             style={{
-              height:
-                showDetails && openCards.includes(card.name) ? "unset" : 100,
+              height: openCards.includes(card.name) ? "unset" : 100,
             }}
           >
             <h2>{card.name}</h2>
             <p>Click to show more details</p>
-            {showDetails &&
-              openCards.includes(card.name) && ( // add const checkifcontainscardname
-                <div>
-                  <p>Apr: {card.apr}</p>
-                  <p>
-                    Balance Transfer Offer Duration:{" "}
-                    {card.balanceTransferOfferDuration}
-                  </p>
-                  <p>Purchase Offer Duration: {card.purchaseOfferDuration}</p>
-                  <p>Credit Available: {card.availableCredit}</p>
-                </div>
-              )}
+            {openCards.includes(card.name) && (
+              <div>
+                <p>Apr: {card.apr}</p>
+                <p>
+                  Balance Transfer Offer Duration:{" "}
+                  {card.balanceTransferOfferDuration}
+                </p>
+                <p>Purchase Offer Duration: {card.purchaseOfferDuration}</p>
+                <p>Credit Available: {card.availableCredit}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>

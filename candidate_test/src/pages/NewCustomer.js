@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header";
+import Footer from "../Footer";
 
 export function NewCustomer() {
-  // TODO: this can probably be massively shortened since there's no need to reset the state of the form (unless more than one customer's data was to be entered)
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -85,134 +85,164 @@ export function NewCustomer() {
     routeChange();
   };
 
+  // const handleTextChange = (e, maxLength) => {
+  //   if (e.target.value.length <= maxLength) {
+  //     this.setState({ value: e.target.value });
+  //   }
+  //   if (e.target.value.length === maxLength) {
+  //     this.nextComponent.focus();
+  //   }
+  // };
+
   return (
     <div className="App">
       <Header />
-      <form>
-        <h3>Name</h3>
-        <label>
-          Title
-          <select
-            data-testid="titleSelect"
-            value="selectTitle"
-            onChange={(event) => handleChange(event, "title")}
-          >
-            <option value="Select Title">Select Title</option>
-            <option value="Mr">Mr</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
-            <option value="Dr">Dr</option>
-            <option value="Rev">Rev</option>
-          </select>
-        </label>
-        <br />
+      <div className="colour-box">
+        <div className="form-box">
+          <form>
+            <h3>Name</h3>
+            <label>
+              <select
+                className="select"
+                data-testid="titleSelect"
+                name="titleSelect"
+                onChange={(event) => handleChange(event, "title")}
+              >
+                <option value="Title">Title</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+                <option value="Dr">Dr</option>
+                <option value="Rev">Rev</option>
+              </select>
+            </label>
 
-        <input
-          type="text"
-          name="firstName"
-          data-testid="firstName"
-          placeholder="First Name"
-          onChange={(event) => handleChange(event, "firstName")}
-        ></input>
-        <br />
+            <input
+              type="text"
+              name="firstName"
+              data-testid="firstName"
+              placeholder="First Name"
+              onChange={(event) => handleChange(event, "firstName")}
+            ></input>
 
-        <input
-          type="text"
-          name="lastName"
-          data-testid="lastName"
-          placeholder="Last Name"
-          onChange={(event) => handleChange(event, "lastName")}
-        ></input>
-        <br />
+            <input
+              type="text"
+              name="lastName"
+              data-testid="lastName"
+              placeholder="Last Name"
+              onChange={(event) => handleChange(event, "lastName")}
+            ></input>
+            <br />
 
-        <h3>Date of Birth</h3>
-        <input
-          type="text"
-          name="dayOfBirth"
-          data-testid="dayOfBirth"
-          placeholder="DD"
-          onChange={(event) => handleChange(event, "dayOfBirth")}
-        ></input>
+            <h3>Date of Birth</h3>
+            <div className="tableDiv">
+              <div className="tableCellDiv">
+                <input
+                  // value={this.state.value}
+                  className="dayOfBirth"
+                  type="text"
+                  name="dayOfBirth"
+                  data-testid="dayOfBirth"
+                  placeholder="DD"
+                  // onChange={
+                  //   ((event) => handleChange(event, "dayOfBirth"),
+                  //   this.handleTextChange)
+                  // }
+                ></input>
+              </div>
 
-        <input
-          type="text"
-          name="monthOfBirth"
-          data-testid="monthOfBirth"
-          placeholder="MM"
-          onChange={(event) => handleChange(event, "monthOfBirth")}
-        ></input>
+              <div className="tableCellDiv">
+                <input
+                  className="monthOfBirth"
+                  type="text"
+                  name="monthOfBirth"
+                  data-testid="monthOfBirth"
+                  placeholder="MM"
+                  onChange={(event) => handleChange(event, "monthOfBirth")}
+                ></input>
+              </div>
 
-        <input
-          type="text"
-          name="yearOfBirth"
-          data-testid="yearOfBirth"
-          placeholder="YYYY"
-          onChange={(event) => handleChange(event, "yearOfBirth")}
-        ></input>
-        <br />
-        {/* TODO: it's cool when DOB forms select the next text area for you */}
+              <div className="tableCellDiv" i>
+                <input
+                  className="yearOfBirth"
+                  type="text"
+                  name="yearOfBirth"
+                  data-testid="yearOfBirth"
+                  placeholder="YYYY"
+                  onChange={(event) => handleChange(event, "yearOfBirth")}
+                ></input>
+              </div>
+            </div>
+            <br />
+            {/* TODO: it's cool when DOB forms select the next text area for you */}
 
-        <h3>Finances</h3>
-        <label>
-          Employment Status
-          <select
-            data-testid="employmentStatusSelect"
-            name="employmentStatusSelect"
-            onChange={(event) => handleChange(event, "employmentStatus")}
-          >
-            <option
-              value="selectEmploymentStatus"
-              data-testid="selectEmploymentStatus"
+            <h3>Finances</h3>
+            <label>
+              <select
+                className="select"
+                data-testid="employmentStatusSelect"
+                name="employmentStatusSelect"
+                onChange={(event) => handleChange(event, "employmentStatus")}
+              >
+                <option
+                  value="selectEmploymentStatus"
+                  data-testid="selectEmploymentStatus"
+                >
+                  Employment Status
+                </option>
+                <option value="fullTime">Full Time</option>
+                <option value="partTime">Part Time</option>
+                <option value="student">Student</option>
+                {/* The lines below exist to demonstrate extensibility */}
+                {/* <option value="retired">Retired</option> */}
+                {/* <option value="homemaker">Homemaker</option> */}
+              </select>
+            </label>
+            <br />
+
+            <input
+              type="text"
+              name="annualIncome"
+              data-testid="annualIncome"
+              placeholder="Annual Income"
+              onChange={(event) => handleChange(event, "annualIncome")}
+            ></input>
+            <br />
+
+            <h3>Address</h3>
+            <input
+              type="text"
+              name="houseNumber"
+              data-testid="houseNumber"
+              placeholder="House Number"
+              onChange={(event) => handleChange(event, "houseNumber")}
+            ></input>
+            <br />
+
+            <input
+              type="text"
+              name="postcode"
+              data-testid="postcode"
+              placeholder="Postcode"
+              onChange={(event) => handleChange(event, "postcode")}
+            ></input>
+            <br />
+
+            <button
+              className="submit"
+              type="submit"
+              name="submit"
+              value="submit"
+              data-testid="submit"
+              onClick={handleSubmit}
             >
-              Select Employment Status
-            </option>
-            <option value="fullTime">Full Time</option>
-            <option value="partTime">Part Time</option>
-            <option value="student">Student</option>
-            {/*TODO: This should be open for extension (O)*/}
-          </select>
-        </label>
-        <br />
-
-        <input
-          type="text"
-          name="annualIncome"
-          data-testid="annualIncome"
-          placeholder="Annual Income"
-          onChange={(event) => handleChange(event, "annualIncome")}
-        ></input>
-        <br />
-
-        <h3>Address</h3>
-        <input
-          type="text"
-          name="houseNumber"
-          data-testid="houseNumber"
-          placeholder="House Number"
-          onChange={(event) => handleChange(event, "houseNumber")}
-        ></input>
-        <br />
-
-        <input
-          type="text"
-          name="postcode"
-          data-testid="postcode"
-          placeholder="Postcode"
-          onChange={(event) => handleChange(event, "postcode")}
-        ></input>
-        <br />
-
-        <button
-          type="submit"
-          name="submit"
-          value="submit"
-          data-testid="submit"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }

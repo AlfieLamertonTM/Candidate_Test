@@ -1,6 +1,23 @@
 @media only screen and (min-width: 0px) {
   .App {
     text-align: center;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .Cards {
+    text-align: center;
+  }
+
+  h1 a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .colour-box {
+    width: 100%;
+    display: block;
+    margin: auto;
+    background-color: white;
   }
 
   .HeaderDiv {
@@ -15,15 +32,71 @@
   }
 
   .FooterDiv {
-    background-color: #949494;
-    height: 50px;
+    background-color: #e6e6e6;
+    height: 15vh;
   }
 
   .FooterTitle {
     color: white;
   }
 
-  .smallHeader {
+  .select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+
+  .tableDiv {
+    display: table;
+    left: 50%;
+  }
+
+  .tableCellDiv {
+    display: table-cell;
+    padding-right: 2vw;
+  }
+
+  .dayOfBirth,
+  .monthOfBirth {
+    width: 35px;
+  }
+
+  .yearOfBirth {
+    width: 60px;
+  }
+
+  .form-box {
+    display: inline-block;
+    max-width: 90%;
+    /* border: dotted #f55a00 5vw; */
+    margin: 2vw;
+    left: 50%;
+  }
+
+  .form-box h3 {
+    font-size: 30px;
+    text-align: left;
+    color: black;
+    margin-bottom: 2vh;
+  }
+
+  .form-box label {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    /* margin: 0 0 2vh 0; */
+    padding: 0 0 2vh 0;
+  }
+
+  .form-box input,
+  text {
+    display: block;
+    max-width: 100%;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin: 0.5vh 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(243, 243, 243);
   }
 
   .CardDiv {
@@ -47,5 +120,149 @@
     margin-bottom: 2vh; /* Margin collapse */
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .submit {
+    background-color: #001b50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .App {
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .Cards {
+    text-align: center;
+  }
+
+  h1 a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .colour-box {
+    width: 60vw;
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  .HeaderDiv {
+    background-color: #001b50;
+    height: 100px;
+  }
+
+  .HeaderTitle {
+    color: white;
+    margin: auto;
+    padding-top: 3.5vh;
+  }
+
+  .FooterDiv {
+    background-color: #e6e6e6;
+  }
+
+  .FooterTitle {
+    color: white;
+  }
+
+  .select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+
+  .tableDiv {
+    display: table;
+    left: 50%;
+  }
+
+  .tableCellDiv {
+    display: table-cell;
+    padding-right: 2vw;
+  }
+
+  .dayOfBirth,
+  .monthOfBirth {
+    width: 35px;
+  }
+
+  .yearOfBirth {
+    width: 60px;
+  }
+
+  .form-box {
+    display: inline-block;
+    max-width: 90%;
+    /* border: dotted #f55a00 5vw; */
+    margin: 2vw;
+    left: 50%;
+  }
+
+  .form-box h3 {
+    font-size: 30px;
+    text-align: left;
+    color: black;
+    margin-bottom: 2vh;
+  }
+
+  .form-box label {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    /* margin: 0 0 2vh 0; */
+    padding: 0 0 2vh 0;
+  }
+
+  .form-box input,
+  text {
+    display: block;
+    max-width: 100%;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin: 0.5vh 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(243, 243, 243);
+  }
+
+  .CardDiv {
+    /* text-align: center; */
+    width: 50vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* Margin collapse */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cardDetails {
+    width: 50vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* Margin collapse */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .submit {
+    background-color: #001b50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
   }
 }
