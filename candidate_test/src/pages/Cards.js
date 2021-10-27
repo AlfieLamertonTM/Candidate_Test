@@ -2,11 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CreditCard } from "../CreditCard";
 import Header from "../Header";
-import Footer from "../Footer";
-
+import StickyFooter from "../StickyFooter";
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
-  // const [showDetails, setShowDetails] = useState(false);
   const [openCards, setOpenCards] = useState([]);
   const id = "1";
   let totalAvailableCredit = 0;
@@ -44,13 +42,14 @@ export default function Cards() {
     const anywhereCard = new CreditCard("Anywhere Card", 18.9, 0, 6, 1200);
     const studentLifeCard = new CreditCard("Student Life", 33.9, 0, 0, 300);
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
+    // This line is an example of how my code is extensible
     const bigStacksCard = new CreditCard(
       "Big Stacks Card",
       33.9,
       12,
       6,
       100000
-    ); // This line is an example of extensible logic
+    );
 
     const cardList = [anywhereCard];
 
@@ -60,7 +59,7 @@ export default function Cards() {
     if (customer.annualIncome > 16000) {
       cardList.push(liquidCard);
     }
-    // This block is an example of extensible logic, too
+    // This if statement is a further example of how my code is extensible
     if (customer.annualIncome > 100000) {
       cardList.push(bigStacksCard);
     }
@@ -84,39 +83,41 @@ export default function Cards() {
   console.log(openCards);
 
   return (
-    <div className="Cards">
+    <div className="CardsPage">
       <Header />
-      <h2 className="smallHeader">Cards Available to You</h2>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filteredCardList.map((card) => (
-          <div
-            onClick={() => showCardDetails(card.name)}
-            key={card.name}
-            className="CardDiv"
-            data-testid="CardDiv"
-            style={{
-              height: openCards.includes(card.name) ? "unset" : 100,
-            }}
-          >
-            <h2>{card.name}</h2>
-            <p>Click to show more details</p>
-            {openCards.includes(card.name) && (
-              <div>
-                <p>Apr: {card.apr}</p>
-                <p>
-                  Balance Transfer Offer Duration:{" "}
-                  {card.balanceTransferOfferDuration}
-                </p>
-                <p>Purchase Offer Duration: {card.purchaseOfferDuration}</p>
-                <p>Credit Available: {card.availableCredit}</p>
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="Cards">
+        <h2 className="smallHeader">Cards Available to You</h2>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {filteredCardList.map((card) => (
+            <div
+              onClick={() => showCardDetails(card.name)}
+              key={card.name}
+              className="CardDiv"
+              data-testid="CardDiv"
+              style={{
+                height: openCards.includes(card.name) ? "unset" : 100,
+              }}
+            >
+              <h2>{card.name}</h2>
+              <p>Click to show more details</p>
+              {openCards.includes(card.name) && (
+                <div>
+                  <p>Apr: {card.apr}</p>
+                  <p>
+                    Balance Transfer Offer Duration:{" "}
+                    {card.balanceTransferOfferDuration}
+                  </p>
+                  <p>Purchase Offer Duration: {card.purchaseOfferDuration}</p>
+                  <p>Credit Available: {card.availableCredit}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        <h2 className="smallHeader">Total Available Credit</h2>
+        <p>{totalAvailableCredit}</p>
       </div>
-      <h2 className="smallHeader">Total Available Credit</h2>
-      <p>{totalAvailableCredit}</p>
-      <Footer />
+      <StickyFooter />
     </div>
   );
 }

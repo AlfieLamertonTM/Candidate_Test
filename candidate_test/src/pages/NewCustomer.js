@@ -85,7 +85,7 @@ export default function NewCustomer() {
   };
 
   return (
-    <div className="App">
+    <div className="NewCustomerPage">
       <Header />
       <div className="colour-box">
         <div className="form-box">
@@ -161,7 +161,6 @@ export default function NewCustomer() {
               </div>
             </div>
             <br />
-            {/* TODO: it's cool when DOB forms select the next text area for you */}
 
             <h3>Finances</h3>
             <label>

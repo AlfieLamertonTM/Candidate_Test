@@ -1,10 +1,14 @@
 @media only screen and (min-width: 0px) {
-  .App {
+  .NewCustomerPage {
     text-align: center;
     background-color: rgb(240, 240, 240);
   }
 
   .Cards {
+    text-align: center;
+  }
+
+  .CardsPage {
     text-align: center;
   }
 
@@ -18,168 +22,12 @@
     display: block;
     margin: 0 auto;
     background-color: white;
-    height: 100%;
   }
 
   .HeaderDiv {
     background-color: #001b50;
     height: 100px;
-  }
-
-  .HeaderTitle {
-    color: white;
-    margin: auto;
-    padding-top: 3.5vh;
-  }
-
-  .select {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-  }
-
-  .tableDiv {
-    display: table;
-    left: 50%;
-  }
-
-  .tableCellDiv {
-    display: table-cell;
-    padding-right: 2vw;
-  }
-
-  .dayOfBirth,
-  .monthOfBirth {
-    width: 35px;
-  }
-
-  .yearOfBirth {
-    width: 60px;
-  }
-
-  .form-box {
-    display: inline-block;
-    max-width: 90%;
-    /* border: dotted #f55a00 5vw; */
-    margin: 2vw;
-    left: 50%;
-  }
-
-  .form-box h3 {
-    font-size: 30px;
-    text-align: left;
-    color: black;
-    margin-bottom: 2vh;
-  }
-
-  .form-box label {
-    display: block;
-    text-align: left;
-    font-size: 20px;
-    /* margin: 0 0 2vh 0; */
-    padding: 0 0 2vh 0;
-  }
-
-  .form-box input,
-  text {
-    display: block;
-    max-width: 100%;
-    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-    margin: 0.5vh 0;
-    border: 0;
-    border-radius: 5px;
-    font-size: 20px;
-    background-color: rgb(243, 243, 243);
-  }
-
-  .CardDiv {
-    /* text-align: center; */
-    width: 50vh;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 10px;
-    margin-top: 2vh;
-    margin-bottom: 2vh; /* Margin collapse */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cardDetails {
-    width: 50vh;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    margin-top: 2vh;
-    margin-bottom: 2vh; /* Margin collapse */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .submit {
-    background-color: #001b50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-
-  .footer {
-    background-color: #e6e6e6;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    /* justify-content: baseline; */
-  }
-
-  .footerText {
-    padding: 0 20px 0 20px;
-    width: 90vw;
-    font-weight: bold;
-  }
-
-  .facePic {
-    height: 40px;
-    width: 40px;
-    margin-left: 1vw;
-  }
-
-  .linkedIn {
-    background-color: white;
-    height: 40px;
-    width: 40px;
-    margin-right: 1vw;
-  }
-}
-
-@media only screen and (min-width: 700px) {
-  .App {
-    text-align: center;
-    background-color: rgb(240, 240, 240);
-  }
-
-  .Cards {
-    text-align: center;
-  }
-
-  h1 a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .colour-box {
-    width: 60vw;
-    display: block;
-    margin: 0 auto;
-    background-color: white;
-    height: 100%;
-  }
-
-  .HeaderDiv {
-    background-color: #001b50;
-    height: 100px;
+    width: 100%;
   }
 
   .HeaderTitle {
@@ -291,6 +139,207 @@
   }
 
   .footerText {
+    padding: 0 20px 0 20px;
+    width: 90vw;
+    font-weight: bold;
+  }
+
+  .stickyFooter {
+    background-color: #e6e6e6;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .stickyFooterText {
+    padding: 0 20px 0 20px;
+    width: 90vw;
+    font-weight: bold;
+  }
+
+  .facePic {
+    height: 40px;
+    width: 40px;
+    margin-left: 1vw;
+  }
+
+  .linkedIn {
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    margin-right: 1vw;
+  }
+}
+
+/* 
+
+
+
+
+*/
+
+@media only screen and (min-width: 700px) {
+  .NewCustomerPage {
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .Cards {
+    text-align: center;
+  }
+
+  .CardsPage {
+    text-align: center;
+  }
+
+  h1 a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .colour-box {
+    width: 60vw;
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+    height: 100%;
+  }
+
+  .HeaderDiv {
+    background-color: #001b50;
+    height: 100px;
+    width: 100%;
+  }
+
+  .HeaderTitle {
+    color: white;
+    margin: auto;
+    padding-top: 3.5vh;
+  }
+
+  .select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+
+  .tableDiv {
+    display: table;
+    left: 50%;
+  }
+
+  .tableCellDiv {
+    display: table-cell;
+    padding-right: 2vw;
+  }
+
+  .dayOfBirth,
+  .monthOfBirth {
+    width: 35px;
+  }
+
+  .yearOfBirth {
+    width: 60px;
+  }
+
+  .form-box {
+    display: inline-block;
+    max-width: 90%;
+    /* border: dotted #f55a00 5vw; */
+    margin: 2vw;
+    left: 50%;
+  }
+
+  .form-box h3 {
+    font-size: 30px;
+    text-align: left;
+    color: black;
+    margin-bottom: 2vh;
+  }
+
+  .form-box label {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    /* margin: 0 0 2vh 0; */
+    padding: 0 0 2vh 0;
+  }
+
+  .form-box input,
+  text {
+    display: block;
+    max-width: 100%;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin: 0.5vh 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(243, 243, 243);
+  }
+
+  .CardDiv {
+    /* text-align: center; */
+    width: 50vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 10px;
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* Margin collapse */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cardDetails {
+    width: 50vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* Margin collapse */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .submit {
+    background-color: #001b50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .footer {
+    background-color: #e6e6e6;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+  }
+
+  .footerText {
+    padding: 0 20px 0 20px;
+    width: 90vw;
+    font-weight: bold;
+  }
+
+  .stickyFooter {
+    background-color: #e6e6e6;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .stickyFooterText {
     padding: 0 20px 0 20px;
     width: 90vw;
     font-weight: bold;
