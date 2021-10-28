@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CreditCard } from "../CreditCard";
 import Header from "../Header";
-import StickyFooter from "../StickyFooter";
+import Footer from "../Footer";
+
 export default function Cards() {
   const [customer, setCustomer] = useState([]);
   const [openCards, setOpenCards] = useState([]);
   const id = "1";
-  let totalAvailableCredit = 0;
+  let totalAvailableCredit = null;
 
   const showCardDetails = (cardName) => {
     if (openCards.includes(cardName)) {
@@ -42,14 +43,14 @@ export default function Cards() {
     const anywhereCard = new CreditCard("Anywhere Card", 18.9, 0, 6, 1200);
     const studentLifeCard = new CreditCard("Student Life", 33.9, 0, 0, 300);
     const liquidCard = new CreditCard("Liquid Card", 33.9, 12, 6, 3000);
-    // This line is an example of how my code is extensible
-    const bigStacksCard = new CreditCard(
-      "Big Stacks Card",
-      33.9,
-      12,
-      6,
-      100000
-    );
+    // This card is an example of how my code is extensible
+    // const bigStacksCard = new CreditCard(
+    //   "Big Stacks Card",
+    //   33.9,
+    //   12,
+    //   6,
+    //   100000
+    // );
 
     const cardList = [anywhereCard];
 
@@ -60,9 +61,9 @@ export default function Cards() {
       cardList.push(liquidCard);
     }
     // This if statement is a further example of how my code is extensible
-    if (customer.annualIncome > 100000) {
-      cardList.push(bigStacksCard);
-    }
+    // if (customer.annualIncome >= 100000) {
+    //   cardList.push(bigStacksCard);
+    // }
     return cardList;
   };
 
@@ -116,8 +117,9 @@ export default function Cards() {
         </div>
         <h2 className="smallHeader">Total Available Credit</h2>
         <p>{totalAvailableCredit}</p>
+        <div className="push"></div>
       </div>
-      <StickyFooter />
+      <Footer />
     </div>
   );
 }

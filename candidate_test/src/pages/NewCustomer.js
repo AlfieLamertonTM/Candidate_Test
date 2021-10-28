@@ -180,8 +180,8 @@ export default function NewCustomer() {
                 <option value="partTime">Part Time</option>
                 <option value="student">Student</option>
                 {/* The lines below exist to demonstrate extensibility */}
-                {/* <option value="retired">Retired</option> */}
-                {/* <option value="homemaker">Homemaker</option> */}
+                {/* <option value="retired">Retired</option>
+                <option value="homemaker">Homemaker</option> */}
               </select>
             </label>
             <br />
@@ -228,6 +228,7 @@ export default function NewCustomer() {
             </button>
           </form>
         </div>
+        <div className="push"></div>
       </div>
       <Footer />
     </div>
